@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>What breed of dog are you?</title>
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="Container">
+
+        <div class="inContainer">
+            <div>
+                <img id="dogImg" src="assets/dogs.jpg" alt="Canine Group"/>
+                <br />
+            </div>
+            <div>
+                <p>
+                    Dog's are a man's best friend, even a Woman's I suppose.
+                    <br /> What sort of phrases do you think of when dog's come to mind?
+                    <br /> Fetch? Good boy? Here Fido?
+                    <br /> Have you ever wondered what sort of dog you'd be, if you were brought into this world as one?
+                    <br /> Well, look no further! fill out the information before to find out!
+                </p>
+
+                <form name="userInfo" method="POST" action="dogPicker.php">
+                    <label>Name:</label>
+                    <input type="text" name="fName" />
+                    <br />
+                    <label>Phrase 1:</label>
+                    <input type="text" name="phrase1" />
+                    <br />
+                    <label>Phrase 2:</label>
+                    <input type="text" name="phrase2" />
+                    <br />
+                    <label>Phrase 3:</label>
+                    <input type="text" name="phrase3" />
+                    
+                    <input type="hidden" name="flag" value="-1" />
+                    <input type="submit" value="Go." />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

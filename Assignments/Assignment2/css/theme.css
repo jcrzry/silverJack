@@ -1,0 +1,46 @@
+body {
+    font-family:georgia,serif;
+    font-size:1.5em;
+    color:black;
+}
+
+.Contianer {
+      margin-left:auto;
+        margin-right:auto;
+         position:relative;
+            width:100%;
+            height:800px;
+        
+    /*position:relative;*/
+    /*display:block;*/
+    /*height:900px;*/
+    /*width:800px;*/
+    background-color:red;
+    /*background-color:#C46F2E;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*border:solid black;*/
+    /*border-radius:15px;*/
+    /*text-align:center;*/
+}
+
+.inContainer {
+    background-color:white;
+    position:relative;
+    border-radius:15px;
+    border:solid;
+    height:90%;
+    width:80%;
+    opacity:0.78;
+    padding:20px;
+}
+
+#dogImg {
+    position:relative;
+    display:block;
+    width:85%;
+    height:100%;
+    margin:0 auto;
+    border:solid black;
+    border-radius:15px;
+}
