@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>What breed of dog are you?</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/theme.css">-->
+    <style type="text/css">
+ body {
+    background-color:#C46F2E;
+    font-family:arial;
+    font-size:1.5em;
+    color:black;
+}
+
+contianer {
+    position:relative;
+    border:solid black;
+    border-radius:15px;
+    width:100%;
+    height:600px;
+}
+
+inContainer {
+    background-color:white;
+    position:absolute;
+    margin-right:auto;
+    margin-left:auto;
+    height:90%;
+    width:90%;
+    opacity:0.8;
+}
+
+div+img {
+    width:100%;
+    height:100%;
+    border:solid;
+}
+    </style>
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <div class="inContainer">
+            <div class="imgHolder">
+                <img src="assets/dogs.jpg" alt="Canine Group" /> 
+                there will be an image here soon.
+                <br />
+
+            </div>
+            <div>
+                <p>
+                    Dog's are a man's best friend, even a Woman's I suppose.
+                    <br /> What sort of phrases do you think of when dog's come to mind?
+                    <br /> Fetch? Good boy? Here Fido?
+                    <br /> Have you ever wondered what sort of dog you'd be, if you were brought into this world as one?
+                    <br /> Well, look no further! fill out the information before to find out!
+                </p>
+
+                <form name="userInfo" method="POST" action="dogPicker.php">
+                    <label>Name</label>
+                    <input type="text" name="first name" />
+                    <input type="hidden" name="flag" value="-1" />
+                    <input type="submit" value="Go." />
+                </form>
+                this will be some other stuff
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Statistics</title>
+    <link rel="shortcut icon" href="https://csumb.edu/sites/all/themes/custom/steinbeck/img/pixelotter/touch-icon-192x192.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="navi.css">
+    <style>
+        h3 {
+            font-family: arial;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        
+        body {
+            font-size: 1.25em;
+            font-family: arial;
+        }
+        
+        #tdBlue {
+            background-color: #1F77D4;
+        }
+        
+        .greyRow > td {
+            background-color: #C8E0E9;
+        }
+        
+        table {
+            background-color: gray;
+            text-align: justify;
+            border-style: solid;
+            border-color: black;
+            margin-right: auto;
+            margin-left: auto;
+            width: 95%;
+        }
+        
+        td {
+            border: solid;
+            border-color: black;
+            height: 40px;
+        }
+        
+        td+td:not(#notMe) {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .imgDiv {
+            position: relative;
+            width: 100%;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+        
+        .imgLeft {
+            display: block;
+            position: relative;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10%;
+            width: 40%
+        }
+        
+        .imgRight {
+            display: block;
+            position: relative;
+            float: right;
+            margin-top: 10px;
+            margin-left: 10%;
+            width: 40%
+        }
+        
+        #footer {
+            position: fixed;
+            bottom: 0;
+            color: red;
+            margin-top: -100px;
+            height: 25px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body bgcolor="E2751D">
+    <div>
+        <h2 style="text-align:center;margin-top:10px;">Let's Save The Earth!!</h2>
+        <div id="topNav">
+            <ul class="list">
+                <li><a href="index.html" alt="Home">Main Page</a></li>
+                <li><a class="active" href="stats.html" alt="Statistics">Statistics</a></li>
+                <li><a href="getInvolved.html" alt="Get Involved">Get Involved!</a></li>
+                <li><a href="contact.html" alt="Contact Us">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td style="background-color:#54D427" colspan="4">
+                            <h3>Global Warming Statistics</h3></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="tdBlue" colspan="3">Rise in the global average surface temperature since the late 19th century</td>
+                        <td id="tdBlue"> 0.6 &#8451;</td>
+                    </tr>
+                    <tr>
+                        <td id="tdBlue" colspan="3">Percentage of climate scientists who believe that global warming is caused by humans</td>
+                        <td id="tdBlue"> 90&#37;</td>
+                    </tr>
+                    <tr>
+                        <td id="tdBlue" colspan="3">Total rise in sea leve over the past 100 years</td>
+                        <td id="tdBlue"> 17.5 cm</td>
+                    </tr>
+                    <tr class="greyRow">
+                        <td rowspan="5" style="text-align:center;color:#FFFFFF;background-color:#600000;color=:ffffff">Public Opinion</td>
+                        <td id="notMe" colspan="2">Percent of Americans who believe that global warming is very real</td>
+                        <td> 70&#37;</td>
+                    </tr>
+                    <tr class="greyRow">
+                        <td colspan="2">Percent of Americans who believe that global warming is not happening</td>
+                        <td>12&#37;</td>
+
+                    </tr>
+                    <tr class="greyRow">
+                        <td colspan="2">Percent of Americans who believe that global warming is caused mostly by human activity</td>
+                        <td> 54&#37;</td>
+                    </tr>
+                    <tr class="greyRow">
+                        <td colspan="2">Percent of Americans who say they are "somewhat" or "very worried" about global warming</td>
+                        <td> 58&#37;</td>
+
+                    </tr>
+                    <tr class="greyRow">
+                        <td colspan="2">Percent of Americans who say they trust climate scientists as a source of information about global warming</td>
+                        <td> 76&#37;</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <font style="display:block;color:red;text-align:center;">Source: IPCC Synthesis Report, Yale/George Mason, National Geographic. 10/20/2012</font>
+            <div class="imgDiv">
+                <div class="imgLeft">
+                    <img src="img/TrendsGlobalEmissions.png" atl="Emission Trends" style="position:absolute;height:300px;width:450px;">
+                    <br/> Source:EPA
+                </div>
+                <div class="imgRight">
+                    <img src="img/worldMap.png" atl="World Map" style="align:middle;height:300px;width:450px;">
+                    <br/> Source: NASA
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            Lab 1 HTML/CSS
+        </div>
+    </div>
+</body>
+
+</html>
