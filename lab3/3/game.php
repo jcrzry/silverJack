@@ -83,38 +83,74 @@ function displayPlayerHand($hand){
     echo '<h3>'.$total.'</h3>';
     return $total;
 }
+function winner($ps1,$ps2,$ps3,$ps4){
+    $scores = [$ps1,$ps2,$ps3,$ps4];
+    for($i =0;i<count($scores)-1;$i++){
+        if($scores[$i] <=42 && $scores[$i] < $scores[$i+1]){
+            $winner = $i+1;
+        }
+        else{
+            $winner=$i+2;
+        }
+    }
+    return $winner;    
+}
 
 $p1H = deal($deck,rand(4,6),0);
-
-displayPlayerHand($p1H);
-
 $p3H = deal($deck,rand(4,6),0);
-
-displayPlayerHand($p3H);
 $p2H = deal($deck,rand(4,6),0);
-
-displayPlayerHand($p2H);
 $p4H = deal($deck,rand(4,6),0);
 
-displayPlayerHand($p4H);
 ?>
 
 <html>
     <head>
         <title>   </title>
+        <link rel="stylesheet" type="text/css" href="css/game.css">
     </head>
     <body>
-        
+        <div class = "container">
+                <div class ="cardDisplay">
+                    <p>
+                        <?php
+                             displayPlayerHand($p1H);                  
+                        ?>
+                        
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <?php
+                            displayPlayerHand($p2H);
+                        ?>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <?php
+                            displayPlayerHand($p3H);
+                        ?>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <?php
+                            displayPlayerHand($p4H);
+                        ?>
+                    </p>
+                </div>
+            <form action="game.php" method="POST">
+                <input type = "hidden" name="p1" value ="<?=$_POST["pl"]?>" />
+                <input type = "hidden" name="p2" value ="<?=$_POST["p2"]?>" />
+                <input type = "hidden" name="p3" value ="<?=$_POST["p3"]?>" />
+                <input type = "hidden" name="p4" value ="<?=$_POST["p4"]?>" />
+                <input type = "submit" value="Play Again?" />
+            </form>
+        </div>
         <?php
            //var_dump($table);
         ?>
-        <!--<a href="game.php" > Play Again?</a>-->
-        <form action="game.php" method="post" />
-        <input type = "hidden" name="p1" value ="<?=$_POST["pl"]?>" />
-        <input type = "hidden" name="p2" value ="<?=$_POST["p2"]?>" />
-        <input type = "hidden" name="p3" value ="<?=$_POST["p3"]?>" />
-        <input type = "hidden" name="p4" value ="<?=$_POST["p4"]?>" />
-        <input type = "submit" value="Play Again?" />
+        
     </body>
     
     
