@@ -14,13 +14,78 @@ $player4 = ["imgageName" => "",
                 
                 $table= [$player1,$player2,$player3,$player4];
                 
+
+ $deck = array("clubs" => glob("assets/clubs/*.png"), "diamonds"=>glob("assets/diamonds/*.png"), 
+    "hearts"=> glob("assets/hearts/*.png"), "spades"=>glob("assets/spades/*.png"));
+
+function deal(array $deck, $numCards,$i){
+    while($i<=$numCards){
+        $suitCard=rand(0,3);
+        $randomCard = rand(1,13);
+            if($suitCard==0){
+                $suit = "clubs";
+                if($deck["$suit"]["$randomCard"] !==0 && $deck["$suit"]["$randomCard"] !== null){
+                    $value = (int)preg_replace("/[^0-9]/", "",substr($deck["$suit"][$randomCard],-6,3));
+                    $hand["$value"] = $deck["$suit"][$randomCard];
+                    $deck["$suit"][$randomCard]=0;
+                    $i++;
+                }
+                else{
+                    deal($deck,$numCards,$i);
+                }    
+            }
+            elseif($suitCard==1){
+                $suit = "diamonds";
+                if($deck["$suit"]["$randomCard"] !==0 && $deck["$suit"]["$randomCard"] !== null){
+                    $value = (int)preg_replace("/[^0-9]/", "",substr($deck["$suit"][$randomCard],-6,3));
+                    $hand["$value"] = $deck["$suit"][$randomCard];
+                    $deck["$suit"][$randomCard]=0;
+                    $i++;
+                }
+                else{
+                    deal($deck,$numCards,$i);
+                }
+            }
+            elseif($suitCard==2){
+                $suit = "hearts";
+                if($deck["$suit"]["$randomCard"] !==0 && $deck["$suit"]["$randomCard"] !== null){
+                    $value = (int)preg_replace("/[^0-9]/", "",substr($deck["$suit"][$randomCard],-6,3));
+                    $hand["$value"] = $deck["$suit"][$randomCard];
+                    $deck["$suit"][$randomCard]=0;
+                    $i++;
+                }
+                else{
+                     deal($deck,$numCards,$i);
+                }
                 
-$cards = ["suit"=="", "number" => " "];
-
-function populateDeck(){
-    //insert card assets into cards array    
-
+            }
+            elseif($suitCard==3){
+                $suit = "spades";
+                if($deck["$suit"]["$randomCard"] !==0 && $deck["$suit"]["$randomCard"] !== null){
+                    $value = (int) preg_replace("/[^0-9]/", "",substr($deck["$suit"][$randomCard],-6,3));
+                    $hand["$value"] = $deck["$suit"][$randomCard];
+                    $deck["$suit"][$randomCard] = 0;
+                    $i++;
+                }
+                else{
+                     deal($deck,$numCards,$i);
+                }
+            }
+    }
+    return $hand;
 }
+
+function displayPlayerHand($hand){
+    foreach($hand as $value=>$card){
+        $total+=$value;
+        echo '<image src="'.$card.'" />';
+    }
+    echo '<h3>'.$total.'</h3>';
+}
+
+$p1H = deal($deck,rand(4,6),0);
+
+displayPlayerHand($p1H);
 
 ?>
 
@@ -31,7 +96,7 @@ function populateDeck(){
     <body>
         
         <?php
-            var_dump($table);
+           //var_dump($table);
         ?>
         <!--<a href="game.php" > Play Again?</a>-->
         <form action="game.php" method="post" />
