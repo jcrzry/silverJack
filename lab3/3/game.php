@@ -81,12 +81,22 @@ function displayPlayerHand($hand){
         echo '<image src="'.$card.'" />';
     }
     echo '<h3>'.$total.'</h3>';
+    return $total;
 }
 
 $p1H = deal($deck,rand(4,6),0);
 
 displayPlayerHand($p1H);
 
+$p3H = deal($deck,rand(4,6),0);
+
+displayPlayerHand($p3H);
+$p2H = deal($deck,rand(4,6),0);
+
+displayPlayerHand($p2H);
+$p4H = deal($deck,rand(4,6),0);
+
+displayPlayerHand($p4H);
 ?>
 
 <html>
