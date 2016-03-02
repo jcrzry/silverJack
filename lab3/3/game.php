@@ -1,9 +1,10 @@
+
+
 <?php
 //empty() will return if the string variable is empty. 
 //isset() returns if the variable has been set in the request. 
 $player1 = ["imgageName" => "",
                 "name" => $_POST["p1"]];
-
 $player2 = ["imgageName" => "",
                 "name" => $_POST["p2"]];
 $player3 = ["imgageName" => "",
@@ -12,12 +13,10 @@ $player4 = ["imgageName" => "",
                 "name" => $_POST["p4"]];
                 
                 
-                $table= [$player1,$player2,$player3,$player4];
+$table= [$player1,$player2,$player3,$player4];
                 
-
  $deck = array("clubs" => glob("assets/clubs/*.png"), "diamonds"=>glob("assets/diamonds/*.png"), 
     "hearts"=> glob("assets/hearts/*.png"), "spades"=>glob("assets/spades/*.png"));
-
 function deal(array $deck, $numCards,$i){
     while($i<=$numCards){
         $suitCard=rand(0,3);
@@ -74,7 +73,6 @@ function deal(array $deck, $numCards,$i){
     }
     return $hand;
 }
-
 function displayPlayerHand($hand){
     foreach($hand as $value=>$card){
         $total+=$value;
@@ -82,25 +80,34 @@ function displayPlayerHand($hand){
     }
     echo '<h3>'.$total.'</h3>';
     return $total;
+    
 }
+function pScore($hand){
+    foreach($hand as $value=>$card){
+        $total+=$value;
+    }
+    return $total;
+}
+ 
+
 function winner($ps1,$ps2,$ps3,$ps4){
     $scores = [$ps1,$ps2,$ps3,$ps4];
-    for($i =0;i<count($scores)-1;$i++){
-        if($scores[$i] <=42 && $scores[$i] < $scores[$i+1]){
-            $winner = $i+1;
+    for($i =0;$i<count($scores)-1;$i++){
+        if($scores[$i] <=42 && $scores[$i] > $scores[$i+1]){
+            $winner = $i;
         }
         else{
-            $winner=$i+2;
+            $winner=$i+1;
         }
     }
     return $winner;    
 }
 
+
 $p1H = deal($deck,rand(4,6),0);
 $p3H = deal($deck,rand(4,6),0);
 $p2H = deal($deck,rand(4,6),0);
 $p4H = deal($deck,rand(4,6),0);
-
 ?>
 
 <html>
@@ -109,69 +116,89 @@ $p4H = deal($deck,rand(4,6),0);
         <link rel="stylesheet" type="text/css" href="css/game.css">
     </head>
     <body>
+        <h1>Silver Jack</h1>
         <div class = "container">
                 <div class ="cardDisplay">
                     <p>
+                        
                         <?php
-                             displayPlayerHand($p1H);                  
+                             echo "</br> <img class='playerImg' src='assets/Players/1.jpg' style=width:72px;height:96px  >   ";
+            
+                             displayPlayerHand($p1H);  
+                             $ps1 = pScore($p1H);
+                             echo "</br>";
+                             echo'<span>'.$_POST["p1"] .'</span>';
+                          
+                             
                         ?>
                         
                     </p>
+                  
                 </div>
-                <div>
+                <div class = "cardDisplay">
                     <p>
                         <?php
+                        echo "</br> <img class = 'playerImg' src='assets/Players/2.jpg' style=width:72px;height:96px  >";
+            
                             displayPlayerHand($p2H);
+                             $ps2 = pScore($p2H);
+                            echo "</br>";
+                             echo '<span>'.$_POST["p2"].'</span>';
                         ?>
                     </p>
                 </div>
-                <div>
+                <div class ="cardDisplay">
                     <p>
                         <?php
+                        echo "</br> <img class ='playerImg' src='assets/Players/3.jpg' style=width:72px;height:96px  >";
+                        
                             displayPlayerHand($p3H);
+                             $ps3 = pScore($p3H);
+                            echo "</br>";
+                              echo '<span>'. $_POST["p3"].'</span>';
+                             
                         ?>
                     </p>
                 </div>
-                <div>
+                <div class="cardDisplay">
                     <p>
                         <?php
+                        echo "</br> <img class ='playerImg'src='assets/Players/4.jpg' style=width:72px;height:96px  >";
+                            echo "&nbsp;";
                             displayPlayerHand($p4H);
+                            $ps4 = pScore($p4H);
+                            
+                            echo "</br>";
+                            echo '<span>'. $_POST["p4"] .'</span>';
+							
+                             
                         ?>
                     </p>
                 </div>
-            <form action="game.php" method="POST">
-                <input type = "hidden" name="p1" value ="<?=$_POST["pl"]?>" />
-                <input type = "hidden" name="p2" value ="<?=$_POST["p2"]?>" />
-                <input type = "hidden" name="p3" value ="<?=$_POST["p3"]?>" />
-                <input type = "hidden" name="p4" value ="<?=$_POST["p4"]?>" />
-                <input type = "submit" value="Play Again?" />
-            </form>
+                <div class="pic2">
+                 <?php 
+                            echo "The winner is : ";
+                            echo '<img class="winnerImg" src=" '.'assets/Players/'.winner($ps1,$ps2,$ps3,$ps4).'.jpg"'.'>';
+                        ?>
+                        
+                </div>
+                <div>
+                    
+                </div>
+                        
+                <div class = "submit">  
+                <form action="game.php" method="POST">
+                    <input type = "hidden" name="p1" value ="<?=$_POST["pl"]?>" />
+                    <input type = "hidden" name="p2" value ="<?=$_POST["p2"]?>" />
+                    <input type = "hidden" name="p3" value ="<?=$_POST["p3"]?>" />
+                    <input type = "hidden" name="p4" value ="<?=$_POST["p4"]?>" />
+                    <input type = "submit" value="Play Again?" style="font-size:25px" style="font-family:Georgia, serif" />
+                </form>
+                </div>
         </div>
-        <?php
-           //var_dump($table);
-        ?>
-        
     </body>
     
     
     
 </html>
 
-
-<!--shuffle(ards[])
-    
-//use flags to determine what cards have been dealt 
-drawhand(int random, cards[])
-//radom amount of cards(4-6) distributed to each player.
-pops each card
-
-getplayerImg()
-//randomizes player image
-
-duplicates()
-//checks to make sure player hand has no puplicate cards
-totalPoints(player,cards[])
-
-checkWinner()
-//compares user scores and displays winner. 
--->
